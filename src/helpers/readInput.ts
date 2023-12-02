@@ -31,11 +31,11 @@ function readInput(filepath: string, mode: InputMode) {
         case InputMode.Raw:
             return readInputRaw(filepath);
         case InputMode.Split:
-            return readInputSplit(filepath);
+            return new Promise(res => readInputSplit(filepath).then(arr => { arr.pop(); res(arr) }));
         case InputMode.SplitNum:
-            return readInputSplitNum(filepath);
+            return new Promise(res => readInputSplitNum(filepath).then(arr => { arr.pop(); res(arr) }));
         case InputMode.Grid:
-            return readInputGrid(filepath);
+            return new Promise(res => readInputGrid(filepath).then(arr => { arr.pop(); res(arr) }));
     }
 }
 

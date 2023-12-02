@@ -61,7 +61,6 @@ const part2 = (input: string[]) => {
 
 const main = async () => {
     const input = await readInput(path.join(__dirname, "./input.txt"), InputMode.Split);
-    input.pop();
 
     console.time("part1");
 
